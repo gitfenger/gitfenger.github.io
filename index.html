@@ -258,6 +258,187 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/hero/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="小华仔">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://www.qqai.net/uploads/i_1_3371928481x1161794290_21.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Thinking life">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Thinking life" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/27/hero/" itemprop="url">
+                  aliyun
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T17:20:29+08:00">
+                2017-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/fuwuqi/" itemprop="url" rel="index">
+                    <span itemprop="name">fuwuqi</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##安装阿里云服务器?<br>ubuntu16.04+PHP7+nginx</p>
+<p>##安装步骤？</p>
+<h3 id="1-aliyun选择安装镜像-16-04-2-LTS"><a href="#1-aliyun选择安装镜像-16-04-2-LTS" class="headerlink" title="1. aliyun选择安装镜像(16.04.2 LTS)"></a>1. aliyun选择安装镜像(16.04.2 LTS)</h3><p><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/103231829.png" alt="mark"></p>
+<h3 id="2-更新源-apt-get-update"><a href="#2-更新源-apt-get-update" class="headerlink" title="2. 更新源 apt-get update"></a>2. 更新源 apt-get update</h3><p><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/103632858.png" alt="mark"></p>
+<h3 id="3-查看安装的php版本"><a href="#3-查看安装的php版本" class="headerlink" title="3. 查看安装的php版本"></a>3. 查看安装的php版本</h3><pre><code>apt-cache show php
+</code></pre><p><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/103928951.png" alt="mark"></p>
+<h3 id="4-安装php-apt-get-install-php"><a href="#4-安装php-apt-get-install-php" class="headerlink" title="4. 安装php   apt-get install php"></a>4. 安装php   apt-get install php</h3><p><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/104327832.png" alt="mark"></p>
+<h3 id="5-安装nginx-apt-get-install-nginx"><a href="#5-安装nginx-apt-get-install-nginx" class="headerlink" title="5. 安装nginx apt-get install nginx"></a>5. 安装nginx apt-get install nginx</h3><p><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/104647172.png" alt="mark"></p>
+<h3 id="6-修改nginx配置"><a href="#6-修改nginx配置" class="headerlink" title="6. 修改nginx配置"></a>6. 修改nginx配置</h3><ol>
+<li>定位到目录  cd /etc/nginx</li>
+<li>编辑        vim nginx.conf</li>
+<li><p>此文件有两行重要代码<br>include /etc/nginx/conf.d/<em>.conf;<br>引入nginx配置文件<br>include /etc/nginx/sites-enabled/</em>;</p>
+</li>
+<li><p>配置虚拟主机的文件<br><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/105246814.png" alt="mark"></p>
+</li>
+</ol>
+<h3 id="7-修改虚拟主机配置文件-etc-nginx-sites-available"><a href="#7-修改虚拟主机配置文件-etc-nginx-sites-available" class="headerlink" title="7. 修改虚拟主机配置文件 /etc/nginx/sites-available"></a>7. 修改虚拟主机配置文件 /etc/nginx/sites-available</h3><ol>
+<li>17行删除 default_server，这样可设置多个虚拟主机</li>
+<li>18行是配置IPv6的，暂时用不到，删除</li>
+<li>35行修改域名对应的文件夹  root /var/www/html/weixin;</li>
+<li>38行添加index.php index index.php index.html index.htm index.nginx-debian.html;</li>
+<li>40行二级域名 server_name weixin.genwoxueit.com;</li>
+<li>50行，为了使nginx可以处理PHP脚本，需要开放以下配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">location ~ \.php$ &#123;</div><div class="line"> 51                 include snippets/fastcgi-php.conf;</div><div class="line"> 52         #</div><div class="line"> 53         #       # With php7.0-cgi alone:</div><div class="line"> 54         #       fastcgi_pass 127.0.0.1:9000;</div><div class="line"> 55         #       # With php7.0-fpm:</div><div class="line"> 56                 fastcgi_pass unix:/run/php/php7.0-fpm.sock;</div><div class="line"> 57         &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://on64ewxzt.bkt.clouddn.com/blog/20170327/110408762.png" alt="mark"></p>
+<h3 id="8-如果需要设置多个虚拟主机"><a href="#8-如果需要设置多个虚拟主机" class="headerlink" title="8. 如果需要设置多个虚拟主机"></a>8. 如果需要设置多个虚拟主机</h3><ol>
+<li>进入/etc/nginx/sites-available目录</li>
+<li>cp default default1</li>
+<li>按照步骤7修改配置</li>
+<li>设置软连接<br>ln -s ../sites-available/default1 ./</li>
+</ol>
+<h2 id="有问题反馈"><a href="#有问题反馈" class="headerlink" title="有问题反馈"></a>有问题反馈</h2><p>在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流</p>
+<ul>
+<li>邮件(jiaohuafeng#gmail.com, 把#换成@)</li>
+<li>QQ: 414582343</li>
+<li>weibo: <a href="http://weibo.com/u/1650557301" target="_blank" rel="external">@小华仔</a></li>
+</ul>
+<p>##捐助开发者<br>在兴趣的驱动下,写一个<code>免费</code>的东西，有欣喜，也还有汗水，希望你喜欢我的作品，同时也能支持一下。<br>当然，有钱捧个钱场</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/index/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -439,149 +620,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/test2/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="小华仔">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://www.qqai.net/uploads/i_1_3371928481x1161794290_21.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Thinking life">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Thinking life" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/test2/" itemprop="url">
-                  h5标签
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T15:06:01+08:00">
-                2017-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/h5/" itemprop="url" rel="index">
-                    <span itemprop="name">h5</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>hello china!</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/文章/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -702,6 +740,149 @@
 <p>大于号表示引用</p>
 </blockquote>
 <h4 id="插入连接"><a href="#插入连接" class="headerlink" title="插入连接"></a>插入连接</h4><p><a href="http://www.baidu.com" target="_blank" rel="external">百度一下</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/test2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="小华仔">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://www.qqai.net/uploads/i_1_3371928481x1161794290_21.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Thinking life">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Thinking life" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/01/test2/" itemprop="url">
+                  h5标签
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T15:06:01+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/h5/" itemprop="url" rel="index">
+                    <span itemprop="name">h5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>hello china!</p>
 
           
         
@@ -905,7 +1086,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
