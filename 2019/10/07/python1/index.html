@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Python | 个人博客</title>
+  <title>python函数 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于日常总结学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
+  <meta name="description" content="python函数">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python函数">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/python1/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="用于日常总结学习">
+<meta property="og:description" content="python函数">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-10-07T08:59:14.616Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="用于日常总结学习">
+<meta name="twitter:title" content="python函数">
+<meta name="twitter:description" content="python函数">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -171,36 +173,94 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/python1/" class="archive-article-date">
-  	<time datetime="2019-10-07T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/python1/">python函数</a>
+    <h1 class="article-title" itemprop="name">
+      python函数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/07/python1/" class="archive-article-date">
+  	<time datetime="2019-10-07T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>函数是对程序逻辑进行结构化的一种编程方法<br>函数定义</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名():</span><br><span class="line"> 代码</span><br><span class="line"> return 需要返回的内容</span><br></pre></td></tr></table></figure>
+
+<p>函数调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数名()</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h2><h2 id="可变长参数"><a href="#可变长参数" class="headerlink" title="可变长参数"></a>可变长参数</h2><ol>
+<li><p>第一种情况，根据形参的顺序和个数，依次赋值<br>print(‘abc’,xxx,’\n\n’)</p>
+</li>
+<li><p>第二种情况，关键词参数<br>print(‘abc’,end=’\n\n’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def func(a,b,c)</span><br><span class="line">  print(&apos;a = %s&apos; %a)</span><br><span class="line">  print(&apos;b = %s&apos; %b)</span><br><span class="line">  print(&apos;c = %s&apos; %c)</span><br><span class="line"></span><br><span class="line">func(1,c=3,b=2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三种情况，可变长度参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def func(first,*other)</span><br><span class="line">  return 1+len(other)</span><br><span class="line"></span><br><span class="line">func(1,2,3,4)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var1 = 123</span><br><span class="line">def func():</span><br><span class="line">  global var1 = 456</span><br><span class="line">  print(var1)</span><br><span class="line"></span><br><span class="line">func()</span><br><span class="line">print(var1)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">456</span><br><span class="line">456</span><br></pre></td></tr></table></figure>
+
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>带yield的迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def frange(start,end,step):</span><br><span class="line">    x = start</span><br><span class="line">    while x &lt; step:</span><br><span class="line">      yield x   //如果不使用yield，则一次性输出所有结果，使用yield，会记录上次输出到的位置</span><br><span class="line">      x += step</span><br><span class="line"></span><br><span class="line">for i in frange(10,20,0.5):</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1 = [1,2,3]</span><br><span class="line">it = iter(list1)</span><br><span class="line">print(next(it)) //每调用一次，输出列表的一个元素</span><br><span class="line">print(next(it))</span><br></pre></td></tr></table></figure>
+
+<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lambda 函数参数: 函数返回值</span><br><span class="line">def true():</span><br><span class="line">  return True</span><br><span class="line">转为lambda表达式</span><br><span class="line">lambda : True</span><br><span class="line"></span><br><span class="line">def add(x,y):</span><br><span class="line">  return x+y</span><br><span class="line"></span><br><span class="line">转为lambda表达式</span><br><span class="line">lambda x,y: x+y</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python内建函数"><a href="#Python内建函数" class="headerlink" title="Python内建函数"></a>Python内建函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [1,2,3,4,5,6]</span><br><span class="line">filter(函数,迭代器)</span><br><span class="line">list(filter(lambda x:x&gt;2 ,a))</span><br></pre></td></tr></table></figure>
+
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://py5tfatek.bkt.clouddn.com/WechatIMG3.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://py5tfatek.bkt.clouddn.com/WechatIMG4.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,7 +272,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -225,17 +285,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aQW7DMAwEwP7/0ynQU4G2wpK0GRcYnYIktsY+EOJKHx/xeH2N8+fv3/z8z/mbiwcuLu6Y+zqOv1g594zODbi4uPvcpHglt0sK1uR14OLiPo1bLWTJw+Di4v53blKYzsT568DFxd3kJs1PvsSpxiK39Gq4uLgD7lWB6eTzG/JdXFzc1q5EUlB6VzVnx8XFXeGeo43zBOcp8wClGqHi4uJucifT5HdLFjeFXg0XF/c2brXvyDdQk8KXvwJcXNx3casHI/KmaLJ4Kr9FXFzcATdvP6obIdXkM1ow4eLiLnLzCy5oS4rhabnK4uLiXsTtRRJ5ADoPSnBxcfe5vZDiHIvk6PzYFi4u7ia3isgjlWqAgouL+xxuvslaXawkJTLfnsHFxd3hFvZYBl1Jzo2KIy4u7s3cJAytHtiqNlT5cQ1cXNxNbnVbJV/WlE9/JIUMFxd3hZuPnQcr78Ti4uJeyq0WlF60kdPzX3Fxce/m9lqg3rJmfhUuLu4mt7cpUm11Rs0PLi7uI7lJYJq3QMmj/nIHXFzcR3LzxqYKOl+Fi4u7z712gt6jRv/ExcVd4fYC094Bi0kIi4uLu8L9BKNqJQtxZwEtAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/09/25/go-part3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基本数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -258,9 +405,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

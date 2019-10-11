@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Python | 个人博客</title>
+  <title>GO基本规则 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于日常总结学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
+  <meta name="description" content="GO基本规则">
+<meta name="keywords" content="go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GO基本规则">
+<meta property="og:url" content="http://yoursite.com/2019/09/21/go-part1/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="用于日常总结学习">
+<meta property="og:description" content="GO基本规则">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-23T00:08:00.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="用于日常总结学习">
+<meta name="twitter:title" content="GO基本规则">
+<meta name="twitter:description" content="GO基本规则">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -171,71 +173,242 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-go-part1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/python1/" class="archive-article-date">
-  	<time datetime="2019-10-07T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/python1/">python函数</a>
+    <h1 class="article-title" itemprop="name">
+      GO基本规则
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/21/go-part1/" class="archive-article-date">
+  	<time datetime="2019-09-21T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-工作区和GOPATH"><a href="#一-工作区和GOPATH" class="headerlink" title="一.工作区和GOPATH"></a>一.工作区和GOPATH</h2><p>工作区是放置Go源码文件的目录</p>
+<p>一般情况下，Go源码文件都需要存放在工作区中，但对于命令源码文件，这不是必须的</p>
+<h3 id="src目录"><a href="#src目录" class="headerlink" title="src目录"></a>src目录</h3><p>用于存放源码文件</p>
+<p>以代码包为组织形式  </p>
+<h3 id="pkg目录"><a href="#pkg目录" class="headerlink" title="pkg目录"></a>pkg目录</h3><p>用于存放归档文件（名称以.a为后缀的文件）</p>
+<h3 id="bin目录"><a href="#bin目录" class="headerlink" title="bin目录"></a>bin目录</h3><p>用于存放当前工作区中的Go程序的可执行文件</p>
+<ol>
+<li>当环境变量GOBIN已有效设置时，该目录会变的无意义</li>
+<li>当GOPATH的值中包含多个工作区的路径时，必须设置GOBIN，否则无法成功安装GO程序的可执行文件</li>
+</ol>
+<h2 id="二-源码文件的分类和含义"><a href="#二-源码文件的分类和含义" class="headerlink" title="二.源码文件的分类和含义"></a>二.源码文件的分类和含义</h2><p>分三类</p>
+<p>1.命令源码文件：</p>
+<p>   声明自己属于main代码包，包含无参数声明和结果声明的main函数<br>   被安装后，相应的可执行文件会被存放到GOBIN执行的目录或当前工作区目录/bin下<br>   命令源码文件是Go程序的入口，但不建议把程序写在一个文件中，注意：同一个代码包中强烈不建议直接包含多个命令源码文件</p>
+<p>2.库源码文件</p>
+<p>   不具备命令源码文件那两个特征的源码文件<br>   被安装后，相应的归档文件会被存放在当前工作目录/pkg/平台相关目录下</p>
+<p>3.测试源码文件</p>
+<p>   不具备命令源码文件那两个特征的源码文件<br>   名称以_test.go为后缀<br>   至少有一个函数的名称以Test或者Benchmark为前缀<br>   并且该函数接收一个类型为<em>testing.T或者</em>testing.B的参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Func TestFind(t *testing.T)&#123;</span><br><span class="line"></span><br><span class="line">//省略若干条语句</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Func BenchmarkFind(b *testing.B)&#123;</span><br><span class="line"></span><br><span class="line">//省略若干条语句</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三-代码包相关知识点"><a href="#三-代码包相关知识点" class="headerlink" title="三.代码包相关知识点"></a>三.代码包相关知识点</h2><p>1.作用：</p>
+<p>编译和归档Go程序的最基本单位<br>代码划分、集结和依赖的有效组织形式，也是权限控制的辅助手段</p>
+<p>2.代码包的规则</p>
+<p>一个代码包实际上就是一个由导入路径代表的目录<br>导入路径即 工作区目录/src 或 工作区目录/pkg/平台相关目录 之下的某段子路径</p>
+<p>3.代码包的声明</p>
+<p>每个源码文件必须声明其所属的代码包<br>同一个代码包中的所有源码文件声明的代码包必须是相同的   </p>
+<p>4.代码包声明与代码包导入路径的区别</p>
+<p>代码包声明语句中的包名称应该是该代码包的导入路径的最右子路径，如hypermind.cn/pkgtool =&gt; package pkgtool</p>
+<p>5.代码包导入</p>
+<p>代码包导入语句中使用的包名称应该与其导入路径一致，例如：</p>
+<p>flag fmt strings ====&gt; import(“flag” “fmt” “strings”)</p>
+<p>6.代码包的导入方法</p>
+<p>带别名的导入</p>
+<p>import str “strings” ====&gt; str.HasPrefix(“abc”,”a”)</p>
+<p>本地化导入</p>
+<p>Import . “strings” ====&gt; HasPrefix(“abc”,”a”)</p>
+<p>仅仅初始化</p>
+<p>Import _ “strings” ====&gt; 仅仅导入初始化方法</p>
+<p>代码包初始化函数即：无参数声明和结果声明的init函数</p>
+<p>init函数可以被声明在任何文件中，且可以有多个</p>
+<p>init函数的执行时机—-单一代码包内</p>
+<p>对所有全局变量进行求值===》执行所有init函数</p>
+<p>init函数的执行时机—-不同代码包之间导入顺序和执行顺序相反</p>
+<p>导入顺序  A—&gt;B—–&gt;C</p>
+<p>执行顺序 C—-&gt;B—–&gt;A</p>
+<p>注意：我们不应该对同一个代码包中导入的多个代码包中的init函数的执行顺序做出假设！</p>
+<p>无论一个代码包中有多少个init函数，每个init函数只会被执行一次</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://py5tfatek.bkt.clouddn.com/WechatIMG3.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://py5tfatek.bkt.clouddn.com/WechatIMG4.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Python笔记//" class="article-tag-list-link color4">Python笔记</a>
+        			<a href="/categories/GO笔记//" class="article-tag-list-link color5">GO笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3aS44CMQwFQO5/aUaaFYuhebaT0CNVVgjR6QoLy588HvF6/q7Xz6/fvPvNu9+/22HZwsXFHXOflyt//Tt68lRiwMXFPc+tBq/rp5LD5Lvh4uLemXsddJKXXe+Ji4v7H7nXZU9SFCV0XFzc+3CT4mdCyb9ZVqvh4uIOuL2G6drP2/u7uLi4i6YSSVCrBr7R23FxcY9w80FIkujkw5hJQxYXF3c3t3dJoodL/o4PTRZcXNyD3KQIqSY0+RgmKYr+yMhwcXG3cauNzrydUQ1wvfIJFxd3H7cw4CwmRgmueoULFxd3N7c3/OiNWicp1Gieg4uL2+LORyBJkTNplODi4t6HOwFVWx5RkwUXF/er3LyFcR2qqoUQLi7ufbjJVYzJi1fdoMDFxT3DnaQj1ZZH3mQp9HdxcXE3cJ/xqgas6gGiix24uLgHuXny8SEixqlS9WC4uLjnub1wVm2RJCGsOYnFxcVdyu0lJZMLHMmz+Q64uLj7uEkwqrYzklQpKXg+XM/CxcXdzF3VvEhaKofSF1xc3C9VCr1GavXwuLi49+f2Lmr0khtcXNzvcifBpTeSqe6Di4t7kju5XJW/eNUhcXFxN3N/AF8D3UR+ufQxAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/23/go-part2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GO命令基础
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/09/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -258,9 +431,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

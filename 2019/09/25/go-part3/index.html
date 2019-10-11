@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Python | 个人博客</title>
+  <title>基本数据类型 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于日常总结学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
+  <meta name="description" content="GO命令基础">
+<meta name="keywords" content="go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本数据类型">
+<meta property="og:url" content="http://yoursite.com/2019/09/25/go-part3/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="用于日常总结学习">
+<meta property="og:description" content="GO命令基础">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-25T01:01:45.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="用于日常总结学习">
+<meta name="twitter:title" content="基本数据类型">
+<meta name="twitter:description" content="GO命令基础">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -171,71 +173,336 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-go-part3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/python1/" class="archive-article-date">
-  	<time datetime="2019-10-07T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/python1/">python函数</a>
+    <h1 class="article-title" itemprop="name">
+      基本数据类型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/25/go-part3/" class="archive-article-date">
+  	<time datetime="2019-09-25T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Go语言-程序实体与关键字"><a href="#Go语言-程序实体与关键字" class="headerlink" title="Go语言-程序实体与关键字"></a>Go语言-程序实体与关键字</h2><p>任何Go语言源码文件都由若干个程序实体组成的。在Go语言中，变量、常量、函数、结构体和接口被统称为“程序实体”，而它们的名字被统称为“标识符”。</p>
+<p>标识符可以是任何Unicode编码可以表示的字母字符、数字以及下划线“_”。不过，首字母不能是数字或下划线。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>注意：在Go语言中，我们对程序实体的访问权限控制只能通过它们的名字来实现。名字首字母为大写的程序实体可以被任何代码包中的代码访问到。而名字首字母为小写的程序实体则只能被同一个代码包中的代码所访问。</p>
+</blockquote>
+<p>关键字：不能把关键字作为标示符<br>|用途|关键字|<br>|—|—|<br>|程序声明|import ,package|<br>|程序实体声明和定义|chan,const,func,interface,map,struct,type,var|<br>|程序流程控制|go,select,break,case,continue,default,defer,else,fallthrough,for,goto,if,range,return,switch|</p>
+<h2 id="Go语言-变量和常量"><a href="#Go语言-变量和常量" class="headerlink" title="Go语言-变量和常量"></a>Go语言-变量和常量</h2><p>变量声明使用var关键字，常量使用const关键字<br>变量可以出现只声明不赋值的情况，但常量不可以<br>变量声明的三种方式，常量也适用</p>
+<ol>
+<li>普通赋值<blockquote>
+<p>var num1 int =1</p>
+</blockquote>
+</li>
+<li>平行赋值<blockquote>
+<p>var num2,num3 int = 2,3</p>
+</blockquote>
+</li>
+<li>多行赋值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var(</span><br><span class="line">  num4 int = 4</span><br><span class="line">  num5 int = 5</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="Go语言-整数类型的命名和宽度"><a href="#Go语言-整数类型的命名和宽度" class="headerlink" title="Go语言-整数类型的命名和宽度"></a>Go语言-整数类型的命名和宽度</h2><p>Go语言的整数类型一共有10个。</p>
+<p>其中计算架构相关的整数类型有两个，即：有符号的整数类型int和无符号的整数类型uint。<br>为什么说这两个整数类型是计算架构相关的呢？这是因为，在不同的计算架构的计算机之上，它们体现的宽度是不同的。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>计算架构</th>
+<th>类型宽度（比特）</th>
+<th>类型宽度（字节）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>32位</td>
+<td>32</td>
+<td>4</td>
+</tr>
+<tr>
+<td>int</td>
+<td>64位</td>
+<td>64</td>
+<td>8</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>32位</td>
+<td>32</td>
+<td>4</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>64位</td>
+<td>32</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<p>除了这两个计算架构相关的整数类型之外，还有8个可以显式表达自身宽度的整数类型。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>有符号</th>
+<th>类型宽度（比特）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int8</td>
+<td>是</td>
+<td>8</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>是</td>
+<td>16</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>是</td>
+<td>32</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>是</td>
+<td>64</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>是</td>
+<td>8</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>是</td>
+<td>16</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>是</td>
+<td>32</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>是</td>
+<td>64</td>
+</tr>
+</tbody></table>
+<h2 id="Go语言-整数类型值表示法"><a href="#Go语言-整数类型值表示法" class="headerlink" title="Go语言-整数类型值表示法"></a>Go语言-整数类型值表示法</h2><table>
+<thead>
+<tr>
+<th>类型宽度（比特）</th>
+<th>数值范围（有符号整数）</th>
+<th>数值范围（有符号整数）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8</td>
+<td>-128-127</td>
+<td>0-255</td>
+</tr>
+<tr>
+<td>16</td>
+<td>-132768-132767</td>
+<td>0-65535</td>
+</tr>
+<tr>
+<td>32</td>
+<td>约-21.47亿-21.47亿</td>
+<td>约0-42.94亿</td>
+</tr>
+<tr>
+<td>64</td>
+<td>约-922亿亿-922亿亿</td>
+<td>约0-1844亿亿</td>
+</tr>
+</tbody></table>
+<p>10进制表示法<br>var num1 int = 12</p>
+<p>8进制表示法：用0作为前缀表明这是8进制<br>num1 = 014</p>
+<p>16进制表示法：用0x作为前缀表明这是16进制<br>num1 = 0xC</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://py5tfatek.bkt.clouddn.com/WechatIMG3.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://py5tfatek.bkt.clouddn.com/WechatIMG4.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Python笔记//" class="article-tag-list-link color4">Python笔记</a>
+        			<a href="/categories/GO笔记//" class="article-tag-list-link color5">GO笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3ay0oEMRAFUP//p0dwpYjx3rxs4WTVhJ7OySyKSlXe3uLx+hjfZz7Pj5/HM5sHLi7uMvc1HOPlf1pybntjAy4u7n3ueMkcN2bl7/w4j4uL+zDuyjbyb+Li4v4v7jgkjd/J/w5cXNzncJPDT5KszJVFjpzVcHFxF7htwfTE88H6Li4ubsl9laM92IxB9eq4uLhXuMnCc8S8bNqWUHFxcU9zk1CVH0Ly9KUNcLi4uE/gtk3QtmWSX+r6MoOLi/un3PzTyQWLuW1vi7u4uLibuHkzNWmK5EnML60aXFzci9w8xOTN17ZZUnSDcXFxD3PnjjrJr9qLFEXDFRcX9wq33Uy74SKJabtAuLi4B7j5oaVdcu4ghIuL+xxukpqsFD3bJClqpeDi4h7j5vnO3AbyhmuRYOHi4h7m5ulFm/S0V7iigiwuLu5Fbh505kB52IoCGS4u7hVuPnYVQfL3ozwLFxd3K3clMI2XnGvZ7kqhcHFx17ltkbS9VNF+J7pNhouLe4WbpyNtkpSstS2m4uLiXufuyqTyw9VSIMPFxX0Md29yg4uL+7fcNrhEn94UBCfLIri4uAvcuQsTSUt17gJHe/ELFxd3K/cdbeu+VUcXYuAAAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/10/07/python1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python函数
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/09/23/go-part2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GO命令基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -258,9 +525,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
