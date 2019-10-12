@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | 个人博客</title>
+  <title>MySQL事务隔离级别 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="MySQL事务隔离级别">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/09/21/hello-world/index.html">
+<meta property="og:title" content="MySQL事务隔离级别">
+<meta property="og:url" content="http://yoursite.com/2019/10/12/mysql1/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="MySQL事务隔离级别">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-09-21T01:07:52.998Z">
+<meta property="og:updated_time" content="2019-10-12T09:20:00.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="MySQL事务隔离级别">
+<meta name="twitter:description" content="MySQL事务隔离级别">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -172,39 +173,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      MySQL事务隔离级别
     </h1>
   
 
         
-        <a href="/2019/09/21/hello-world/" class="archive-article-date">
-  	<time datetime="2019-09-21T01:07:52.998Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
+        <a href="/2019/10/12/mysql1/" class="archive-article-date">
+  	<time datetime="2019-10-12T01:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="事务隔离级别概述"><a href="#事务隔离级别概述" class="headerlink" title="事务隔离级别概述"></a>事务隔离级别概述</h2><p>mysql中，innodb所提供的事务符合ACID的要求，而事务通过事务日志中的redo log和undo log满足了原子性、一致性、持久性，事务还会通过锁机制满足隔离性，在innodb存储引擎中，有不同的隔离级别，他们有不同的隔离性。</p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h2 id="不同隔离级别所拥有的问题"><a href="#不同隔离级别所拥有的问题" class="headerlink" title="不同隔离级别所拥有的问题"></a>不同隔离级别所拥有的问题</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>脏读</th>
+<th>不可重读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读未提交</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>读提交</td>
+<td>✘</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>可重读</td>
+<td>✘</td>
+<td>✘</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>串行化</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+</tr>
+</tbody></table>
+<h2 id="几种隔离级别的解释"><a href="#几种隔离级别的解释" class="headerlink" title="几种隔离级别的解释"></a>几种隔离级别的解释</h2><ol>
+<li>读未提交：未提交的也能读到<br>一个事务A并未提交，但另一个事务B可以看到事务A所做的修改。<br>两个事务A,B,如果是读未提交隔离级别，事务A所做的修改并未提交，事务B也能读到其所做的修改。这也解释了为什么读未提交隔离级别会存在脏读、不可重读、幻读的情况。<br>脏读：如果事务A修改了一条记录，事务B读到了修改后的数据，结果事务A撤销了事务，那事务B读到的就是脏数据，不准的数据。<br>不可重读：如果事务A修改了一条记录，事务B读到了修改后的数据，事务A撤销了事务，事务B再次读取此条记录，发现两次读取的数据不一致，造成不可重读。<br>幻读：事务A执行添加语句，添加一条记录。事务B读取数据时，发现新增了一条记录；事务A撤销事务，删除掉新增记录，事务B再次读取，发现新增数据没有了，感觉像出现幻觉一样。</li>
+</ol>
+<p>2.读提交：提交后才能读到<br>一个事务A并未提交，另一个事务B不能看到事务A所做的修改。事务B只能读到事务A提交后的更改，这种隔离级别叫做读提交。<br>为什么读提交会发生不可重读和幻读？<br>不可重读：事务A修改了一条记录，未提交时，事务B读到此条记录没有修改。事务A提交后，事务B再读时，此条记录已经修改。<br>幻读：事务A向表插入一条记录，此时事务B查询是查不到的，事务A提交，此时事务B再查，查到了插入的记录，出现幻读。</p>
+<p>3.可重读：MySQL默认的事务级别，事务A修改了数据表记录，事务B查看到的数据仍然是事务A修改前的数据，即使事务A提交了，在事务B没有提交之前，事务B中查看到的数据都是相同的。不管事务A是否提交，在事务B没有提交之前，这条数据对于事务B来说一直没有发生改变，这条数据在事务B中可以重复的被读到，所以，这种隔离级别被称为可重读。<br>为什么可重读会出现幻读？<br>幻读：事务A添加了一条记录，然后提交了，事务B因为没有提交，不管怎么查，都查不到新增记录，事务B一提交，再查询时发现数据多了一条，出现幻读。</p>
+<h2 id="脏读、幻读、不可重读的区别"><a href="#脏读、幻读、不可重读的区别" class="headerlink" title="脏读、幻读、不可重读的区别"></a>脏读、幻读、不可重读的区别</h2><p>脏读:当前事务可以查看到别的事务未提交的数据（侧重点在别的事务未提交）<br>幻读：幻读与不可重读很容易混淆，幻读侧重于新增和删除，表示在同一个事务中，使用相同的查询语句，第二次查询时，莫名的多出了一些以前不存在的数据，或者莫名的不见了一些数据。<br>不可重读：不可重读的侧重点在更新修改数据。表示在同一个事务中，查询相同的数据范围时，同一个数据资源莫名的改变了。</p>
 
       
 
@@ -244,7 +275,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库笔记//" class="article-tag-list-link color1">数据库笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -294,7 +347,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3aQW7DMAwF0dz/0u6mixaGlPmiEsDUeBU0jqXnBUuRfL3wdf257n8ffb5f9zvJKtsuGTJkPJZxTa/RAiMS+VUKnt8jQ4aMcxijCMaDaSXgztea702GDBky5veMNp0G3HRdGTJkyKgHXILkL0KGDBkyeKo3fxDnkfD9wbO4DBkyHsjgVffvf/5If0OGDBmPYlzhRX67dgBe28/vb2XIkNGawQMc3yhP3YIDKhnLkCFDxgGMtODFj7IksPIBjrjcJkOGjBaMSjK3N2Sn7cw3XQ4ZMmQ0YqyNR/ABiyC9C9NEGTJknMZYa1umwxn1ID7coQwZMpoy+MDWrtJbGqDRoVqGDBkHMNaW56+DD6SmrdB/AVeGDBlNGeRxPEWrjLTy5gFKN2XIkNGOUTmspmlcZZjszYuQIUNGa8Za6zFNFisjZWtNUxkyZPRgpAMW9SV58S5oVMiQIaM1Iy30pwMT/PhaKc/JkCHjBMZaika+5c/hdUFUL5QhQ0Y7Rpq6pZsOxiYqzVQZMmQcxljbeqUBWR/jkCFDxmmMdOucVNpo5ewrQ4aMFgxSGqscStcCbjwzIkOGjHaMegBdG8XgBTXUrpAhQ0ZrxtpwGH8EKZzxVLWUOMqQIePhDB5keYJYGdTgY2FxhitDhoyHM3aNZ8VTHuF/ADQtIkOGDBl4i/XmZbCiDBkyZISL8dDMWwKoPSBDhozWjF3l/r3N0aBRKkOGjNaMSomfbDFtMHCqDBkyDmD8AHV1A/FM4kyIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABv0lEQVR42u3aOY7DMAwF0Nz/0hkgbcbOJ2kTLp6qIIv04oLgotcrXu/P+n59/p3v9f3p646Fi4s75r5P1zll/k5uwMXF3edOAlMSbY4+zQ24uLjP5FaD2hG0lzbh4uI+k1s9rPc4cHFxn8PNGxl5ypK3RW6p1XBxcQfcScP0qtdL/V1cXNzxVCIPar0wVN4HFxd3hXsUUM5LkV4ylLRIojCHi4t7MzfftFf2VBslP07ExcVd5OabToYreZg7PBcXF3eFW00+qkGtOjKJAiIuLu4KN0llehewqr/KHwEuLu7d3KTN0SuN5lOS8ldxcXEv4vbSlLy8mTdKcHFxN7mTjZJCpVcyHT4OXFzcFW5+Aas3y0jiDy4u7tO4+WikmgZVk6FoZ1xc3BVutabotT9ybhQEcXFxb+a+iyunV69uJGfh4uJucnvjz6tasYVf4eLiLnIngayaBlUDYjSJxcXFvZQ7L2Dy9sekOVv+M7i4uGNuHryqAai3z4/RLC4u7iK3mo5MLluMSiZcXNyHcefJULVJ+s8OuLi4D+Y2xyGT5AYXF3ede9WRvYIqGcTi4uJucnuJS++P9S5s4eLiLnL/AOpjJQvA2SouAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,15 +361,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/21/go-part1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GO基本规则
-        
-      </div>
-    </a>
   
+    <a href="/2019/10/07/python1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python函数</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
